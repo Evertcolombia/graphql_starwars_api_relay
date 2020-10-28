@@ -1,0 +1,7 @@
+Django>=1.11
+psycopg2-binary>=2.8
+graphene-django
+django-extensions
+django-filter
+django-graphql-jwt
+datetime

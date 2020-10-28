@@ -1,0 +1,26 @@
+query specificPerson($charactername: String) {
+  specificPerson(name: $charactername) {
+    edges {
+      node {
+        name height gender
+        films {
+          edges {
+            node {
+            	title openingCrawl
+              planets {
+                edges {
+                  node {
+                    name
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    pageInfo {
+      hasNextPage
+    }
+  }
+}
