@@ -273,3 +273,42 @@ class Mutation:
     update_film = FilmUpdateMutation.Field()
     update_planet = PlanetUpdateMutation.Field()
     update_people = PeopleUpdateMutation.Field()
+
+
+schema = Schema(Query)
+result = schema.execute(
+    '''
+    query person($name: String) {
+        specificPerson(name: $name) {
+            edges {
+                node {
+                    id
+                    name
+                    gender
+                    skinColor
+                    height
+                    eyeColor
+                    films {
+                        edges {
+                            node {
+                                id
+                                title
+                                director producer
+                                planets {
+                                    edges {
+                                        node {
+                                            name 
+                                            population
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            } 
+        }
+    }
+    ''',
+    variables={'name': put_the_name}
+)

@@ -26,7 +26,7 @@ class PlanetType(DjangoObjectType):
         model = Planet
         #exclude_fields = ('climate', 'terrain')
         filter_fields = { 
-            'name': ['exact', 'icontains', 'istartswith']
+            'name': ['exact']
         }
         interfaces = (relay.Node,)
     
@@ -40,6 +40,6 @@ class PeopleType(DjangoObjectType):
     class Meta:
         model = People
         filter_fields = { 
-            'name': ['exact', 'icontains', 'istartswith']
+            'name': ['exact']
         }
         interfaces = (relay.Node,)
